@@ -25,6 +25,19 @@ services:
       - "5001:5001"
     networks:
       - microservices-net
+      
+  course-catalogue:
+    build: ./course-catalogue
+    container_name: course-catalogue
+    environment:
+      DATABASE_URL: postgresql://student:password@student-db:5432/students
+      FLASK_ENV: development
+    depends_on:
+      - student-db
+    ports:
+      - "5002:5002"
+    networks:
+      - microservices-net
 
   admin-frontend:
     build: ./frontend

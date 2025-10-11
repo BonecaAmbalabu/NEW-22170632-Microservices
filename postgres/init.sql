@@ -44,3 +44,16 @@ INSERT INTO students (name, email, attendance) VALUES
 ('Michael Scott', 'michael.scott@example.com', '[]'),
 ('Rachel Green', 'rachel.green@example.com', '[]'),
 ('Stephen Thorpe', 'stephen.thorpe@example.com', '[]');
+
+CREATE TABLE IF NOT EXISTS courses (
+    id SERIAL PRIMARY KEY,
+    code VARCHAR(20) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+INSERT INTO courses (code, title, description) VALUES
+('COMP601', 'Introduction to Programming', 'Learn Python and software basics.'),
+('COMP602', 'Data Structures', 'Study linked lists, trees, and algorithms.'),
+('COMP603', 'Web Development', 'Build modern web apps using Flask and React.');
+

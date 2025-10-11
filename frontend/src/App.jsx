@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './index.css' // Import the new CSS file
+import CourseCatalogue from './course-catalogue'
 
 const API = 'http://localhost:5001'
 
@@ -23,7 +24,7 @@ export default function App() {
     if (!name || !email) return
     const res = await fetch(`${API}/students`, {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, email })
     })
     if (res.ok) {
@@ -41,7 +42,7 @@ export default function App() {
     if (!attDate) return
     await fetch(`${API}/students/${id}/attendance`, {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ date: attDate, status: attStatus })
     })
     setAttDate('')
@@ -62,19 +63,21 @@ export default function App() {
       <section className="grid-2">
         <div className="card">
           <h2>Add Student</h2>
-          <input placeholder="Full name" value={name} onChange={e=>setName(e.target.value)} />
-          <input placeholder="Email" value={email} onChange={e=>setEmail(e.target.value)} />
+          <input placeholder="Full name" value={name} onChange={e => setName(e.target.value)} />
+          <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
           <button className="btn-primary" onClick={addStudent}>Add</button>
         </div>
 
         <div className="card">
           <h2>Search</h2>
-          <input placeholder="Search by name or email" value={search} onChange={e=>setSearch(e.target.value)} />
+          <input placeholder="Search by name or email" value={search} onChange={e => setSearch(e.target.value)} />
         </div>
       </section>
 
       {/* === Student List Section === */}
       <h2>Students ({filtered.length})</h2>
+      <hr />
+      <CourseCatalogue />
       <div className="grid-gap">
         {filtered.map(s => (
           <div key={s.id} className="grid-row">
@@ -85,7 +88,7 @@ export default function App() {
               <details>
                 <summary>Attendance ({(s.attendance || []).length})</summary>
                 <ul>
-                  {(s.attendance || []).map((a,i) => (
+                  {(s.attendance || []).map((a, i) => (
                     <li key={i}>{a.date} – {a.status}</li>
                   ))}
                 </ul>
@@ -94,16 +97,16 @@ export default function App() {
 
             <div className="justify-end">
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                <input type="date" value={attDate} onChange={e=>setAttDate(e.target.value)} />
-                <select value={attStatus} onChange={e=>setAttStatus(e.target.value)}>
+                <input type="date" value={attDate} onChange={e => setAttDate(e.target.value)} />
+                <select value={attStatus} onChange={e => setAttStatus(e.target.value)}>
                   <option>Present</option>
                   <option>Absent</option>
                   <option>Late</option>
                   <option>Excused</option>
                 </select>
-                <button className="btn-secondary" onClick={()=>addAttendance(s.id)}>Record</button>
+                <button className="btn-secondary" onClick={() => addAttendance(s.id)}>Record</button>
               </div>
-              <button className="btn-danger" onClick={()=>deleteStudent(s.id)}>Delete</button>
+              <button className="btn-danger" onClick={() => deleteStudent(s.id)}>Delete</button>
             </div>
           </div>
         ))}

@@ -57,3 +57,14 @@ INSERT INTO courses (code, title, description) VALUES
 ('COMP602', 'Data Structures', 'Study linked lists, trees, and algorithms.'),
 ('COMP603', 'Web Development', 'Build modern web apps using Flask and React.');
 
+CREATE TABLE IF NOT EXISTS feedback (
+    id SERIAL PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    course_code VARCHAR(20) NOT NULL,
+    comment TEXT NOT NULL
+);
+
+INSERT INTO feedback (student_name, course_code, comment) VALUES
+('Aroha Ngata', 'COMP601', 'Great course'),
+('Tane Mahuta', 'COMP602', 'Very interesting lectures'),
+('Li Wei', 'COMP603', 'Could use more examples');

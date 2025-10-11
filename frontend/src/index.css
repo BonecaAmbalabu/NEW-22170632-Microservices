@@ -114,3 +114,110 @@ details summary {
   color: #009688; /* secondary */
   outline: none;
 }
+
+/* === Feedback Section Container === */
+.feedback-section {
+  margin-top: 40px;
+  max-width: 700px;
+}
+
+/* === Feedback Title (e.g. "💬 Feedback (3)") === */
+.feedback-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* === Feedback Input Area (whole form section) === */
+.feedback-input {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* === Feedback Input Fields (name + course code) === */
+.feedback-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.feedback-fields input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* === Feedback Textarea (comment box) === */
+.feedback-input textarea {
+  min-height: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+/* === Submit Button (Send feedback) === */
+.feedback-input button {
+  align-self: flex-end;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.feedback-input button:hover {
+  background-color: #125ea8;
+}
+
+/* === Feedback List Container === */
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* === Individual Feedback Card (each comment) === */
+.feedback-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* === Feedback Header (avatar + name + course) === */
+.feedback-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+/* === Feedback Avatar (user initial bubble) === */
+.feedback-avatar {
+  background-color: #1976d2;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* === Course Code Text (light grey beside name) === */
+.course-code {
+  color: #757575;
+  font-size: 0.9em;
+}
+
+/* === Feedback Comment Text === */
+.feedback-comment {
+  margin-left: 42px;
+  line-height: 1.4em;
+}
+

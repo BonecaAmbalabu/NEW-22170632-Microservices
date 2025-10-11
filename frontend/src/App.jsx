@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import './index.css' // Import the new CSS file
 import CourseCatalogue from './course-catalogue'
+import FeedbackSection from './feedback'
 
 const API = 'http://localhost:5001'
 
@@ -78,6 +79,8 @@ export default function App() {
       <h2>Students ({filtered.length})</h2>
       <hr />
       <CourseCatalogue />
+      <hr />
+      <FeedbackSection />
       <div className="grid-gap">
         {filtered.map(s => (
           <div key={s.id} className="grid-row">

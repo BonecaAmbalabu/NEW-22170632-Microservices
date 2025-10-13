@@ -52,6 +52,18 @@ services:
     networks:
       - microservices-net
 
+  enrolment-service:
+    build: ./enrolment
+    container_name: enrolment-service
+    environment:
+      DATABASE_URL: postgresql://student:password@student-db:5432/students
+      FLASK_ENV: development
+    depends_on:
+      - student-db
+    ports:
+      - "5004:5004"
+    networks:
+      - microservices-net
 
   admin-frontend:
     build: ./frontend

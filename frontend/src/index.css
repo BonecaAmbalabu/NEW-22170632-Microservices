@@ -209,6 +209,15 @@ details summary {
   font-weight: bold;
 }
 
+/* === Feedback Dropdown for Course Selection === */
+.feedback-fields select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
 /* === Course Code Text (light grey beside name) === */
 .course-code {
   color: #757575;
@@ -220,4 +229,63 @@ details summary {
   margin-left: 42px;
   line-height: 1.4em;
 }
+
+/* === ENROLMENT SECTION === */
+.enrol-section {
+  margin-top: 40px;
+  max-width: 700px;
+}
+
+.enrol-title {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.enrol-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5em;
+}
+
+.enrol-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.enrol-input button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+.enrol-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.enrol-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* === Enrolment Dropdown === */
+.enrol-input select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
 

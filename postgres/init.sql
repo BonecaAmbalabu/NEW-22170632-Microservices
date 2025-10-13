@@ -68,3 +68,15 @@ INSERT INTO feedback (student_name, course_code, comment) VALUES
 ('Aroha Ngata', 'COMP601', 'Great course'),
 ('Tane Mahuta', 'COMP602', 'Very interesting lectures'),
 ('Li Wei', 'COMP603', 'Could use more examples');
+
+-- Create table for storing enrolments
+CREATE TABLE IF NOT EXISTS enrolments (
+    id SERIAL PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    course_code VARCHAR(20) NOT NULL
+);
+
+-- Optional sample data
+INSERT INTO enrolments (student_name, course_code) VALUES
+('Aroha Ngata', 'COMP601'),
+('Tane Mahuta', 'COMP602');

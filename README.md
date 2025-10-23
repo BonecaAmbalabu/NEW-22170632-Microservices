@@ -106,3 +106,40 @@ The Postgres container runs `postgres/init.sql` on first build. This script:
 -   Creates tables for students, courses, feedback, and enrolments
 -   Inserts some sample data for testing.
 
+## Key API Endpoints
+
+### 1. Student Profile Service (:5001)
+ - GET /students
+ - POST /students → { name, email }
+ - PUT /students/:id
+ - DELETE /students/:id
+ - POST /students/:id/attendance
+
+ ### 2. Course Catalogue Service (:5002)
+ - GET /courses
+ - POST /courses → { code, name, description }
+
+### 3. Feedback (:5003)
+ - GET /feedback
+ - POST /feedback → { student_name, course, comment }
+
+### 4. Enrolment Service (:5004)
+ - GET /enrolments
+ - POST /enrolments → { student_name, course_code }
+ - DELETE / enrolments/:id
+
+## Frontend Features 
+
+The React Admin UI provides:
+- Student Management: add, search, delete, and record attendance
+- Course Catalogue: View and add courses dynamically
+- Feedback Section: Submit Feedback using dropdown of existing courses
+- Enrolment Section Assign students to courses using dropdowns to ensure valid data
+
+## Known Behavior / Notes
+
+- If new courses or students are added refresh the page to see it.
+- make sure Docker desktop is on when running ( docker compose up )
+- If containers fail to start, try: 
+docker compose down -v
+docker compose up --build

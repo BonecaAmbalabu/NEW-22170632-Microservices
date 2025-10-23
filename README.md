@@ -1,55 +1,74 @@
-# INFS605-Assignment2-Starter-Files
-This is a starter application for a BCIS second-year INFS605 Microservices programming assignment. It includes a containerized student-profile service (Python + Flask), a PostgreSQL database, a React (Vite) admin UI to list/search/add/delete students and record attendance and docker-compose.yml. Students are invited to extend the system by adding their own microservices and deploying a small-scale distributed application.
+# INFS605-Assignment2
+This is a completed INFS605 Microservices Programming Assignment.It extends the original starter application by adding multiple new microservices to create a small-scale distributed student management system.
 
-## License
+The system now includes:
+A student-profile service (Python + Flask)
+A course-catalogue service
+A feedback service (with YouTube-style comment interface)
+An enrolment service (linking students and courses)
+A PostgreSQL database for persistence
+A React (Vite) frontend with sections for Students, Courses, Feedback, and Enrolments
+A shared Docker Compose file to orchestrate all services
 
-Code in this repository is licensed under the [MIT License](LICENSE).
+# Microservices Assignment Summary
 
-Assignment instructions, diagrams, and documentation (non-code) are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
-
-## Microservices Assignment Starter
-
-This repository provides a starter  application for your programming assignment in the INFS605 Microservices course (BCIS Year 2).
-
-You are provided with:
-- A `student-profile` microservice built in Flask
-- A PostgreSQL container for persistence
-- A shared `docker-compose.yml` to deploy services
-- a React (Vite) `student-profile` front end with an admin user interface
+This repository is the final implementation for the INFS605 Microservices course (BCIS Year 2).
+It demonstrates a fully containerized microservices architecture with distinct service responsibilities and a shared Postgres database.
 
 microservices-assignment/
 ├── docker-compose.yml
 ├── README.md
 ├── frontend/
-│   ├── Public/
+│   ├── node_modules/
+│   ├── public/
 │   ├── src/
+│   │   ├── App.jsx
+│   │   ├── course-catalogue.jsx
+│   │   ├── feedback.jsx
+│   │   ├── enrolment.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
 │   ├── Dockerfile
-│   ├── package.json
-│   └── vite-config.js
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
 ├── student-profile/
 │   ├── app.py
 │   ├── Dockerfile
 │   ├── init.sql
+│   ├── wait-for-it.sh
 │   └── requirements.txt
-├── .env.example
-├── .gitignore
-├── docker-compose.yml
-├── LICENSE
-└── README.md
+├── course-catalogue/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── feedback/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── enrolment/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── postgres
+│   └── init.sql
+└── LICENSE
 
-Technologies used:
-- Python + Flask
-- Docker + Docker Compose
-- PostgreSQL
-- React + Tailwind CSS
 
-Your task is to build additional microservices, connect them using Docker Compose, and demonstrate a small, functional microservices architecture with clear service boundaries.
+# Technologies Used
+Python + Flask for backend microservices
+React (Vite) for the admin frontend
+PostgreSQL for persistence
+Docker & Docker Compose for deployment and networking
+Flask-CORS for service-to-frontend communication
 
-Start small, and iterate!
+# Added Microservices 
+ - student-profile : http://localhost:5001
+ - course-catalogue : http://localhost:5002
+ - feedback : http://localhost:5003
+ - enrolment : http://localhost:5004
 
-You can use this as a starting point for your assignment and consider adding further services – a Course Catalog Service, a Feedback Service, a Notification Service, a Grades Service (that can store and retrieve grades for students and courses), a Timetable Service (that can show weekly schedules for students or lecturers) an Assignment Tracker (shows coming and submitted assignments), a Room Booking Service (for team meetings), or come more generic services such as – an Image Upload Service, a Search Service, a Logging or Audit Trail Service, Frontend UI, PDF Generator, System Metrics Service. Or perhaps add the Adminer service from the week 6 tutorial class to directly access the PostGres student-db.
-
-## Getting Started
+# Getting Started
 
 ### 1. Prerequisites
 - Docker
